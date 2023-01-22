@@ -8,6 +8,7 @@ const connect = require("./connection/conn")
 const { v4: uniqKeyGenerate } = require("uuid")
 connect()
 const Posts = require("./Models/SchemaAddusers")
+const { env } = require("process")
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
 
@@ -62,6 +63,6 @@ app.get("/images/:fileName", async (req, res) => {
     res.sendFile(path.join(__dirname, `./uploads/${req.params.fileName}`))
 })
 
-app.listen(8080,()=>{
+app.listen(8080 || process.env.PORT ,()=>{
     console.log("server is up");
 })
