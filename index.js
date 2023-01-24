@@ -92,6 +92,10 @@ app.get("/images/:fileName", async (req, res) => {
     res.sendFile(path.join(__dirname, `./uploads/${req.params.fileName}`))
 })
 
+<<<<<<< HEAD
 app.listen(8080 || process.env.PORT ,()=>{
+=======
+app.listen(8080 || process.env.PORT,()=>{
+>>>>>>> 7cf9a9aaa74afb32c84265933e7e31f603d00377
     console.log("server is up");
 })
