@@ -30,7 +30,7 @@ app.get("/",(req,res)=>{
 })
 
 app.post("/addpost",(req,res,next)=>{
-    console.log(req.body)
+    //console.log(req.body)
     const {username,address,discription} = req.body
     const f=req.files.img;
     cloudinary.uploader.upload(f.tempFilePath,async (err,result)=>{
@@ -50,7 +50,7 @@ app.post("/addpost",(req,res,next)=>{
                 status :"ok",
                 data:post
             })
-            console.log(post);
+            //console.log(post);
         }
     })
 })
@@ -87,15 +87,8 @@ app.get("/getpost",async(req,res)=>{
         res.json({message: e})
     }
 })
-app.get("/images/:fileName", async (req, res) => {
-    // console.log(`./uploads/${req.params.fileName}`)
-    res.sendFile(path.join(__dirname, `./uploads/${req.params.fileName}`))
-})
 
-<<<<<<< HEAD
-app.listen(8080 || process.env.PORT ,()=>{
-=======
+
 app.listen(8080 || process.env.PORT,()=>{
->>>>>>> 7cf9a9aaa74afb32c84265933e7e31f603d00377
     console.log("server is up");
 })
